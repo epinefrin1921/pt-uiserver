@@ -22,11 +22,14 @@ public class Location extends PrimaryKey implements Serializable,GenericEntity<L
 
     @Override
     public void update(Location source) {
-
+     this.city=source.getCity();
+     this.area=source.getArea();
     }
 
     @Override
     public Location createNewInstance() {
-        return null;
+        Location newInstance = new Location();
+        newInstance.update(this);
+        return newInstance;
     }
 }
