@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LocationDto extends GenericDto<LocationDto>{
+public class CategoryDto extends GenericDto<CategoryDto>{
     private Long id;
-    private String city;
-    private String area;
+    private String name;
+    private String description;
 }

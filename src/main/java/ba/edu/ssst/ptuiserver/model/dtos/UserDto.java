@@ -1,5 +1,6 @@
 package ba.edu.ssst.ptuiserver.model.dtos;
 
+import ba.edu.ssst.ptuiserver.model.entities.Location;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto extends GenericDto<UserDto>{
-
+    private Long id;
     private String firstName;
     private String lastName;
     private boolean isAdmin;
@@ -20,5 +21,6 @@ public class UserDto extends GenericDto<UserDto>{
     private int contact;
     private int dob;
     private long jmbg;
-    private int location;
+    private Location location;
+    private int locationId;
 }

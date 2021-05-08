@@ -31,6 +31,9 @@ public class User extends PrimaryKey implements Serializable,GenericEntity<User>
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "biography")
     private String biography;
 
@@ -43,8 +46,9 @@ public class User extends PrimaryKey implements Serializable,GenericEntity<User>
     @Column(name = "jmbg")
     private long jmbg;
 
-    @Column(name = "location")
-    private int location;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @Override
     public void update(User source) {
