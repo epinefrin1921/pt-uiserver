@@ -3,9 +3,10 @@ package ba.edu.ssst.ptuiserver.controller;
 
 import ba.edu.ssst.ptuiserver.model.dtos.UserDto;
 import ba.edu.ssst.ptuiserver.model.entities.User;
-import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
+import ba.edu.ssst.ptuiserver.repositories.UserRepository;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @Api(value="users", description="Operations pertaining to users")
 public class UserController extends GenericController<User,UserDto>{
 
-    public UserController(GenericRepository<User> repository) {
-        super(repository,UserDto.class);
+    public UserController(UserRepository repository) {
+        super(repository,UserDto.class, User.class);
     }
 }
 

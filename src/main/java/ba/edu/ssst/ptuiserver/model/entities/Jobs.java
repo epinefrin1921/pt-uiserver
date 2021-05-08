@@ -6,11 +6,11 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
 @Getter
 @Setter
 @Entity
 @Table(name = "jobs")
-
 public class Jobs extends PrimaryKey {
 
     @Column(name = "jobName")

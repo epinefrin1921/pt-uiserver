@@ -1,8 +1,5 @@
 package ba.edu.ssst.ptuiserver.model.entities;
 
-
-
-
 public interface GenericEntity<T> {
 
     // update current instance with provided data

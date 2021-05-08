@@ -14,10 +14,12 @@ public abstract class GenericController<T extends GenericEntity<T>,O extends Gen
 
     private final GenericService<T> service;
     private final Class<O> dto;
+    private final Class<T> classGet;
 
-    public GenericController(GenericRepository<T> repository, Class<O> userDtoClass) {
+    public GenericController(GenericRepository<T> repository, Class<O> userDtoClass, Class<T> userClass) {
         this.service = new GenericService<T>(repository) {};
         this.dto=userDtoClass;
+        this.classGet = userClass;
     }
     @GetMapping
     public ResponseEntity<Collection<O>> getAll(){
@@ -32,17 +34,17 @@ public abstract class GenericController<T extends GenericEntity<T>,O extends Gen
     @PutMapping("/{id}")
     public ResponseEntity<O> update(@RequestBody O updated,
     @PathVariable Long id){
-        return ResponseEntity.ok(service.update(id,updated,dto));
+        return ResponseEntity.ok(service.update(id,updated,dto,classGet));
     }
 
     @PostMapping("")
     public ResponseEntity<O> create(@RequestBody O created){
-        return ResponseEntity.ok(service.create(created,dto));
+        return ResponseEntity.ok(service.create(created,dto, classGet));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id){
-        service.delete(id);
+        service.delete(id,classGet);
         return ResponseEntity.ok("Ok");
     }
 }

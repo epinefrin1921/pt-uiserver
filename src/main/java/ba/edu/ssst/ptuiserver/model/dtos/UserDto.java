@@ -10,7 +10,6 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class UserDto extends GenericDto<UserDto>{
 
     private String firstName;

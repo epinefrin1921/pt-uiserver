@@ -4,7 +4,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${Projecthost:localhost}:5432/PartTimeDB
     username: ${Projectuser:postgres}
-    password: ${Projectpw:Anke1905}
+    password: ${Projectpw:test123}
 
   jpa:
     hibernate:
