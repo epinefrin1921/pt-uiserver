@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Setter
 @Entity
 @Table(name="locations")
-
 public class Location extends PrimaryKey implements Serializable,GenericEntity<Location> {
 
     @Column(name = "city")

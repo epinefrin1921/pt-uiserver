@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class LocationDto extends GenericDto<LocationDto>{
     private String city;
     private String area;

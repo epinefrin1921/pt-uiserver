@@ -16,7 +16,6 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class PrimaryKey implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

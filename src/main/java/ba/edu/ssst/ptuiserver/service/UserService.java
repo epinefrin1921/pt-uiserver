@@ -6,7 +6,6 @@ import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-//@RequiredArgsConstructor
 public class UserService extends GenericService<User>{
 
 
