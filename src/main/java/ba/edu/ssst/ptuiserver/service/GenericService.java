@@ -16,8 +16,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public abstract class GenericService<T extends GenericEntity<T>> {
 
     private final GenericRepository<T> repository;
-
-//    private final Class<T> entityClass;
     private final ModelMapper mapper;
 
     public GenericService(GenericRepository<T> repository) {
