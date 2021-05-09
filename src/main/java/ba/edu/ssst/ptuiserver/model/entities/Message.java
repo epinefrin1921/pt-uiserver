@@ -7,9 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-@Table(
-        name = "messages"
-)
+@Table(name = "messages")
 @Entity
 @Getter
 @Setter
@@ -30,7 +28,6 @@ public class Message extends PrimaryKey implements Serializable,GenericEntity<Me
     @ManyToOne
     @JoinColumn(name = "postedby_id")
     private User postedBy;
-
 
     @Override
     public void update(Message source) {

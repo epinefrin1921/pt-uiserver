@@ -3,8 +3,8 @@ package ba.edu.ssst.ptuiserver.service;
 import ba.edu.ssst.ptuiserver.model.entities.GenericEntity;
 import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.web.server.ResponseStatusException;
-
 import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
@@ -59,9 +59,11 @@ public abstract class GenericService<T extends GenericEntity<T>> {
     }
 
     public <O> T fromPayload(O inputData, Class<T> outputClass) {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         return mapper.map(inputData, outputClass);
     }
     public <O> O toPayload(T inputData, Class<O> outputClass) {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         return mapper.map(inputData, outputClass);
     }
 }

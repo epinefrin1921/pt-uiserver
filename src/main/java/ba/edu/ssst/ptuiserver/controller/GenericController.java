@@ -6,9 +6,7 @@ import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import ba.edu.ssst.ptuiserver.service.GenericService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
-
 
 public abstract class GenericController<T extends GenericEntity<T>,O extends GenericDto<O>> {
 

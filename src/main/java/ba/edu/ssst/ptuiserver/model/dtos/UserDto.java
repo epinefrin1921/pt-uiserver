@@ -1,17 +1,20 @@
 package ba.edu.ssst.ptuiserver.model.dtos;
 
 import ba.edu.ssst.ptuiserver.model.entities.Location;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto extends GenericDto<UserDto>{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class UserDto extends GenericDto<UserDto> implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
@@ -22,5 +25,6 @@ public class UserDto extends GenericDto<UserDto>{
     private int dob;
     private long jmbg;
     private Location location;
-    private int locationId;
+    private LocationDto locationDto;
+    private long locationId;
 }

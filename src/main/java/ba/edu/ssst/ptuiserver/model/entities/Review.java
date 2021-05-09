@@ -7,9 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-@Table(
-        name = "reviews"
-)
+
+@Table(name = "reviews")
 @Entity
 @Getter
 @Setter

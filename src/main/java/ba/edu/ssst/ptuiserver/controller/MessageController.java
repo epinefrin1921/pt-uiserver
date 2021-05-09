@@ -1,10 +1,7 @@
 package ba.edu.ssst.ptuiserver.controller;
 
-import ba.edu.ssst.ptuiserver.model.dtos.LocationDto;
 import ba.edu.ssst.ptuiserver.model.dtos.MessageDto;
-import ba.edu.ssst.ptuiserver.model.entities.Location;
 import ba.edu.ssst.ptuiserver.model.entities.Message;
-import ba.edu.ssst.ptuiserver.repositories.LocationRepository;
 import ba.edu.ssst.ptuiserver.repositories.MessageRepository;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
