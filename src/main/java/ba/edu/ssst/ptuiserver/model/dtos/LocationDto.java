@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LocationDto extends GenericDto<LocationDto>{
+public class LocationDto extends GenericDto{
     private Long id;
     private String city;
     private String area;

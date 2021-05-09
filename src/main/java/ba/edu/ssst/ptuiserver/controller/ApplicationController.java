@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/application")
-@Api(value="applications", description="Operations pertaining to applications")
+@Api(value="applications")
 public class ApplicationController extends GenericController<Application, ApplicationDto> {
     public ApplicationController(GenericRepository<Application> repository) {
         super(repository, ApplicationDto.class, Application.class);

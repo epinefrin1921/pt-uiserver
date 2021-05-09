@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ApplicationDto extends GenericDto<ApplicationDto>{
+public class ApplicationDto extends GenericDto{
     private Long id;
     private int jobId;
     private Job job;

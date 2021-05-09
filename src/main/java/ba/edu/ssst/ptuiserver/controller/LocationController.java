@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/location")
-@Api(value="locations", description="Operations pertaining to locations")
+@Api(value="locations")
 public class LocationController extends GenericController<Location,LocationDto>{
 
     public LocationController(LocationRepository repository) {

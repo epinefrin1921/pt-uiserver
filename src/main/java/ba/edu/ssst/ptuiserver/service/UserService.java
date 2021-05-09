@@ -31,5 +31,15 @@ public class UserService extends GenericService<User>{
        newDomain.setLocation(null);
        return newDomain;
     }
+
+    @Transactional
+    public UserDto update(Long id, UserDto updated, Class<UserDto> dtoClass, Class<User> entityClass){
+        get(id,dtoClass);
+        updated.setLocation(locationRepository.getOne(updated.getLocationId()));
+        updated = super.update(id, updated, dtoClass, entityClass);
+        updated.setLocationDto(mapper.map(updated.getLocation(), LocationDto.class));
+        return updated;
+    }
+
 }
 

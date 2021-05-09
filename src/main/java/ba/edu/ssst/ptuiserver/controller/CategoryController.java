@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/category")
-@Api(value="categories", description="Operations pertaining to categories")
+@Api(value="categories")
 public class CategoryController extends GenericController<Category, CategoryDto>{
 
     public CategoryController(CategoryRepository repository) {

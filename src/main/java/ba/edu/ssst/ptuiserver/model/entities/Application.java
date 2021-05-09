@@ -6,14 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 @Setter
 @Getter
 @Entity
 @Table(name="applications")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Application extends PrimaryKey implements Serializable,GenericEntity<Application>{
+public class Application extends GenericEntity{
 
     @ManyToOne
     @JoinColumn(name = "job_id")
@@ -32,19 +31,4 @@ public class Application extends PrimaryKey implements Serializable,GenericEntit
     @Column(name = "photo")
     private String photo;
 
-    @Override
-    public void update(Application source) {
-        this.job=source.getJob();
-        this.user=source.getUser();
-        this.cv=source.getCv();
-        this.message=source.getMessage();
-        this.photo=source.getPhoto();
-    }
-
-    @Override
-    public Application createNewInstance() {
-        Application newInstance = new Application();
-        newInstance.update(this);
-        return newInstance;
-    }
 }

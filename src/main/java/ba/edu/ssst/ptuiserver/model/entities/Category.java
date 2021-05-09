@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Setter
 @Getter
@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Table(name="categories")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category extends PrimaryKey implements Serializable,GenericEntity<Category>{
+public class Category extends GenericEntity{
 
     @Column(name = "name")
     private String name;
@@ -23,16 +23,4 @@ public class Category extends PrimaryKey implements Serializable,GenericEntity<C
     @Column(name = "description")
     private String description;
 
-    @Override
-    public void update(Category source) {
-     this.name=source.getName();
-     this.description=source.getDescription();
-    }
-
-    @Override
-    public Category createNewInstance() {
-        Category newInstance = new Category();
-        newInstance.update(this);
-        return newInstance;
-    }
 }

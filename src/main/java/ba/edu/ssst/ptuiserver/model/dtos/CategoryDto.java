@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CategoryDto extends GenericDto<CategoryDto>{
+public class CategoryDto extends GenericDto{
     private Long id;
     private String name;
     private String description;

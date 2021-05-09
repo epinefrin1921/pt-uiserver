@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 @Table(name = "users")
 @Entity
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends PrimaryKey implements Serializable,GenericEntity<User> {
+public class User extends GenericEntity{
 
     @Column(name = "firstName")
     private String firstName;
@@ -35,36 +35,17 @@ public class User extends PrimaryKey implements Serializable,GenericEntity<User>
     private String biography;
 
     @Column(name = "contact")
-    private int contact;
+    private String contact;
 
     @Column(name = "dob")
-    private int dob;
+    private Date dob;
 
     @Column(name = "jmbg")
-    private long jmbg;
+    private String jmbg;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @Override
-    public void update(User source) {
-     this.firstName=source.getFirstName();
-     this.lastName=source.getLastName();
-     this.isAdmin=source.isAdmin();
-     this.email=source.getEmail();
-     this.biography=source.getBiography();
-     this.contact=source.getContact();
-     this.dob=source.getDob();
-     this.jmbg=source.getJmbg();
-     this.location=source.getLocation();
-    }
-
-    @Override
-    public User createNewInstance() {
-        User newInstance = new User();
-        newInstance.update(this);
-        return newInstance;
-    }
 }
 
