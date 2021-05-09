@@ -7,14 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto extends GenericDto<UserDto> implements Serializable {
+public class UserDto extends GenericDto<UserDto>{
     private Long id;
     private String firstName;
     private String lastName;
