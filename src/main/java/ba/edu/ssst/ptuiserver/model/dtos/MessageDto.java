@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class MessageDto extends GenericDto<MessageDto>{
+public class MessageDto extends GenericDto{
     private Long id;
     private String time;
     private String content;

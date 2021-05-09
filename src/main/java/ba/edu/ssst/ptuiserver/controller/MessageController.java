@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/message")
-@Api(value="messages", description="Operations pertaining to messages")
+@Api(value="messages")
 public class MessageController extends GenericController<Message, MessageDto>{
     public MessageController(MessageRepository repository) {
         super(repository,MessageDto.class, Message.class);

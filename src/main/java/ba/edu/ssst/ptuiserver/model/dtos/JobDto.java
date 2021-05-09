@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class JobDto extends GenericDto<JobDto>{
+public class JobDto extends GenericDto{
     private Long id;
     private String jobName;
     private String jobDescription;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/review")
-@Api(value="review", description="Operations pertaining to reviews")
+@Api(value="review")
 public class ReviewController extends GenericController<Review, ReviewDto>{
     public ReviewController(ReviewRepository repository) {
         super(repository,ReviewDto.class, Review.class);

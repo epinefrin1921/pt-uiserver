@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/job")
-@Api(value="jobs", description="Operations pertaining to jobs")
+@Api(value="jobs")
 public class JobController extends GenericController<Job, JobDto>{
     public JobController(JobRepository repository) {
         super(repository,JobDto.class, Job.class);

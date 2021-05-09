@@ -4,8 +4,9 @@ import ba.edu.ssst.ptuiserver.model.entities.GenericEntity;
 import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
-import javax.transaction.Transactional;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +14,7 @@ import java.util.stream.Stream;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-public abstract class GenericService<T extends GenericEntity<T>> {
+public abstract class GenericService<T extends GenericEntity> {
 
     private final GenericRepository<T> repository;
     private final ModelMapper mapper;

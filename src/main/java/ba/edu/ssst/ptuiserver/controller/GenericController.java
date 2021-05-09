@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
-public abstract class GenericController<T extends GenericEntity<T>,O extends GenericDto<O>> {
+public abstract class GenericController<T extends GenericEntity,O extends GenericDto> {
 
     private final GenericService<T> service;
     private final Class<O> dtoType;

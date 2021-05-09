@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Table(name = "reviews")
 @Entity
@@ -14,7 +13,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Review extends PrimaryKey implements Serializable,GenericEntity<Review>{
+public class Review extends GenericEntity{
 
     @Column(name = "rating")
     private double rating;
@@ -30,18 +29,4 @@ public class Review extends PrimaryKey implements Serializable,GenericEntity<Rev
     @JoinColumn(name = "postedby_id")
     private User postedBy;
 
-    @Override
-    public void update(Review source) {
-     this.rating=source.getRating();
-     this.comment=source.getComment();
-     this.user=source.getUser();
-     this.postedBy=source.getPostedBy();
-    }
-
-    @Override
-    public Review createNewInstance() {
-       Review newInstance = new Review();
-        newInstance.update(this);
-        return newInstance;
-    }
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ReviewDto extends GenericDto<ReviewDto>{
+public class ReviewDto extends GenericDto{
     private Long id;
     private double rating;
     private String comment;

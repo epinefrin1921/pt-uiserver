@@ -6,14 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 @Table(name = "messages")
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message extends PrimaryKey implements Serializable,GenericEntity<Message>{
+public class Message extends GenericEntity{
 
     @Column(name = "time")
     private String time;
@@ -29,18 +28,4 @@ public class Message extends PrimaryKey implements Serializable,GenericEntity<Me
     @JoinColumn(name = "postedby_id")
     private User postedBy;
 
-    @Override
-    public void update(Message source) {
-        this.time=source.getTime();
-        this.content=source.getContent();
-        this.sentBy=source.getSentBy();
-        this.postedBy=source.getPostedBy();
-    }
-
-    @Override
-    public Message createNewInstance() {
-        Message newInstance = new Message();
-        newInstance.update(this);
-        return newInstance;
-    }
 }
