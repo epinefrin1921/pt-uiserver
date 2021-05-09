@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JobService extends GenericService<Job>{
+
     public JobService(GenericRepository<Job> repository) {
         super(repository);
     }

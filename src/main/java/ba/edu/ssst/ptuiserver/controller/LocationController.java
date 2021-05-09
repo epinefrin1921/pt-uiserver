@@ -7,7 +7,6 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/location")
 @Api(value="locations", description="Operations pertaining to locations")

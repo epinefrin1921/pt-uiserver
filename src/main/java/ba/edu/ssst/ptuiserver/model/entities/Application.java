@@ -10,12 +10,9 @@ import java.io.Serializable;
 @Setter
 @Getter
 @Entity
-@Table(
-        name="applications"
-)
+@Table(name="applications")
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Application extends PrimaryKey implements Serializable,GenericEntity<Application>{
 
     @ManyToOne
@@ -34,7 +31,6 @@ public class Application extends PrimaryKey implements Serializable,GenericEntit
 
     @Column(name = "photo")
     private String photo;
-
 
     @Override
     public void update(Application source) {

@@ -1,6 +1,5 @@
 package ba.edu.ssst.ptuiserver.model.entities;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(
-        name = "users"
-)
+@Table(name = "users")
 @Entity
 @Getter
 @Setter

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryService extends GenericService<Category>{
+
     public CategoryService(GenericRepository<Category> repository) {
         super(repository);
     }
