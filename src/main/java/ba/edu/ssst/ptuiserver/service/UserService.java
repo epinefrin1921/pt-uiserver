@@ -28,7 +28,6 @@ public class UserService extends GenericService<User>{
        newDomain.setLocation(locationRepository.getOne(newDomain.getLocationId()));
        newDomain = super.create(newDomain,dtoClass,entityClass);
        newDomain.setLocationDto(mapper.map(newDomain.getLocation(), LocationDto.class));
-       newDomain.setLocation(null);
        return newDomain;
     }
 
