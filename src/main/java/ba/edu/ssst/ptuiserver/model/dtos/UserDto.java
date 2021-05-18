@@ -2,12 +2,12 @@ package ba.edu.ssst.ptuiserver.model.dtos;
 
 import ba.edu.ssst.ptuiserver.model.entities.Location;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.Date;
 
 @Setter
@@ -26,7 +26,6 @@ public class UserDto extends GenericDto{
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date dob;
     private String jmbg;
-    @JsonIgnore
     private Location location;
     private LocationDto locationDto;
     private long locationId;
