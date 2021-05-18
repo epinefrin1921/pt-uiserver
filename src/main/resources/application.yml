@@ -15,3 +15,7 @@ spring:
   data:
     jpa:
       repositories.enabled: true
+
+service:
+    frontend:
+      url: ${UI_APPLICATIONS:http://localhost:4200}
