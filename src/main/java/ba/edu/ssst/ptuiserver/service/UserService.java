@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -118,6 +120,25 @@ public class UserService extends GenericService<User> {
         Map<String, String> map = new HashMap<>();
         map.put("token", token);
         return map;
+    }
+
+    @EventListener
+    public void seed(ContextRefreshedEvent event) {
+        seedUsersTable();
+    }
+    private void seedUsersTable() {
+        UserDto userDto = new UserDto();
+        userDto.setPassword("Corekinect1!");
+        userDto.setEmail("nedim.ajdin12@gmail.com");
+        userDto.setFirstName("Nedim");
+        userDto.setLocationId(1);
+        userDto.setLastName("Ajdin");
+        userDto.setBiography("Student i developer");
+        userDto.setJmbg("2910998170129");
+        userDto.setContact("0603094532");
+        userDto.setAdmin(true);
+        userDto.setDob(new Date());
+        this.create(userDto);
     }
 
 }
