@@ -122,24 +122,5 @@ public class UserService extends GenericService<User> {
         return map;
     }
 
-    @EventListener
-    public void seed(ContextRefreshedEvent event) {
-        seedUsersTable();
-    }
-    private void seedUsersTable() {
-        UserDto userDto = new UserDto();
-        userDto.setPassword("Corekinect1!");
-        userDto.setEmail("nedim.ajdin12@gmail.com");
-        userDto.setFirstName("Nedim");
-        userDto.setLocationId(1);
-        userDto.setLastName("Ajdin");
-        userDto.setBiography("Student i developer");
-        userDto.setJmbg("2910998170129");
-        userDto.setContact("0603094532");
-        userDto.setAdmin(true);
-        userDto.setDob(new Date());
-        this.create(userDto);
-    }
-
 }
 
