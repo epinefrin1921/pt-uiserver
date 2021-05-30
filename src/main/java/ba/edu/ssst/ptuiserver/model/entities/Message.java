@@ -13,10 +13,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Message extends GenericEntity{
-
-    @Column(name = "time")
-    private String time;
-
     @Column(name = "content")
     private String content;
 
@@ -25,7 +21,7 @@ public class Message extends GenericEntity{
     private User sentBy;
 
     @ManyToOne
-    @JoinColumn(name = "postedby_id")
-    private User postedBy;
+    @JoinColumn(name = "sentto_id")
+    private User sentTo;
 
 }

@@ -1,6 +1,7 @@
 package ba.edu.ssst.ptuiserver.model.dtos;
 
 import ba.edu.ssst.ptuiserver.model.entities.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,8 +17,12 @@ public class ReviewDto extends GenericDto{
     private Long id;
     private double rating;
     private String comment;
+    @JsonIgnore
     private User user;
-    private int userId;
+    private long userId;
+    private UserDto userDto;
+    @JsonIgnore
     private User postedBy;
-    private int postedById;
+    private long postedById;
+    private UserDto postedByDto;
 }

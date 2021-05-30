@@ -28,9 +28,6 @@ public class User extends GenericEntity{
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
-    private String password;
-
     @Column(name = "biography")
     private String biography;
 
@@ -40,8 +37,14 @@ public class User extends GenericEntity{
     @Column(name = "dob")
     private Date dob;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "jmbg")
     private String jmbg;
+
+    @Column(name = "token")
+    private String token;
 
     @ManyToOne
     @JoinColumn(name = "location_id")

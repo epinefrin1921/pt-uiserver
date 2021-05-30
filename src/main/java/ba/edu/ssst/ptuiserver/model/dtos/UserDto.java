@@ -31,4 +31,5 @@ public class UserDto extends GenericDto{
     private Location location;
     private LocationDto locationDto;
     private long locationId;
+    private String password;
 }

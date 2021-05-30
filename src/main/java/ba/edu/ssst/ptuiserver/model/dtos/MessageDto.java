@@ -1,6 +1,7 @@
 package ba.edu.ssst.ptuiserver.model.dtos;
 
 import ba.edu.ssst.ptuiserver.model.entities.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,10 +15,13 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MessageDto extends GenericDto{
     private Long id;
-    private String time;
     private String content;
+    @JsonIgnore
     private User sentBy;
-    private int sentById;
-    private User postedBy;
-    private int postedById;
+    private UserDto sentByDto;
+    private long sentById;
+    @JsonIgnore
+    private User sentTo;
+    private UserDto sentToDto;
+    private long sentToId;
 }
