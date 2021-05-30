@@ -9,10 +9,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-@Table(name="applications")
+@Table(name="job_applications")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Application extends GenericEntity{
+public class JobApplication extends GenericEntity{
 
     @ManyToOne
     @JoinColumn(name = "job_id")

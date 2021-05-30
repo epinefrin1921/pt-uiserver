@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Table(name = "reviews")
 @Entity
@@ -16,6 +18,8 @@ import javax.persistence.*;
 public class Review extends GenericEntity{
 
     @Column(name = "rating")
+    @Min(0)
+    @Max(10)
     private double rating;
 
     @Column(name = "comment")

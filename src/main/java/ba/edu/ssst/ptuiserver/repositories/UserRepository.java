@@ -5,5 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface UserRepository extends GenericRepository<User> {
-
+    User findByEmail(String email);
+    Integer countAllByEmail(String email);
 }
