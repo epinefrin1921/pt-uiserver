@@ -43,9 +43,6 @@ public class User extends GenericEntity{
     @Column(name = "jmbg")
     private String jmbg;
 
-    @Column(name = "token")
-    private String token;
-
     @ManyToOne
     @JoinColumn(name = "location_id")
     private Location location;
