@@ -20,8 +20,12 @@ public class AuthFilter extends GenericFilterBean {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpResponse= (HttpServletResponse) servletResponse;
-
         String authHeader = httpRequest.getHeader("Authorization");
+
+        if(httpRequest.getMethod().equals("OPTIONS")){
+            filterChain.doFilter(servletRequest, servletResponse);
+            return;
+        }
         if(authHeader!=null){
             String [] authHeaderArr = authHeader.split("Bearer ");
             if(authHeaderArr.length>1 && authHeaderArr[1]!=null) {

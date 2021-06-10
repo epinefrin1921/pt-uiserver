@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url:  ${DATABASE_URL}
+    url:  jdbc:postgresql://${Projecthost:localhost}:5432/PartTimeDB
     username: ${Projectuser:postgres}
     password: ${Projectpw:test123}
 

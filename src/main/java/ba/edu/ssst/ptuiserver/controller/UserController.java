@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -27,11 +28,14 @@ public class UserController extends GenericController<User,UserDto>{
         return ResponseEntity.ok(userService.get());
     }
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, Object> userMap){
+    public ResponseEntity<Map<String, Object>> login(@RequestBody Map<String, Object> userMap){
         String email = (String) userMap.get("email");
         String password = (String) userMap.get("password");
         UserDto user = userService.validateUser(email, password);
-        return ResponseEntity.ok(userService.generateJWTToken(user));
+        HashMap<String, Object> bodyMap = new HashMap<>();
+        bodyMap.put("token", userService.generateJWTToken(user));
+        bodyMap.put("user", user);
+        return ResponseEntity.ok(bodyMap);
     }
 
     @Override
