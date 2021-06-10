@@ -46,6 +46,7 @@ public class UserService extends GenericService<User> {
 
     public List<UserDto> get(){
         List<UserDto> entities=  super.get(UserDto.class);
+        entities= entities.stream().peek(userDto -> userDto.setPassword(null)).collect(Collectors.toList());
         entities = entities.stream().peek(this::fillForeignObjects).collect(Collectors.toList());
         return entities;
     }
@@ -53,11 +54,13 @@ public class UserService extends GenericService<User> {
     public UserDto get(Long id){
         UserDto entity = super.get(id, UserDto.class);
         this.fillForeignObjects(entity);
+        entity.setPassword(null);
         return entity;
     }
 
     @Transactional
    public UserDto create(UserDto newDomain){
+        System.out.println(newDomain.getPassword());
         newDomain.setPassword(BCrypt.hashpw(newDomain.getPassword(), BCrypt.gensalt(10)));
         newDomain.setEmail(newDomain.getEmail().toLowerCase(Locale.ROOT));
         this.validateEmail(newDomain.getEmail());
