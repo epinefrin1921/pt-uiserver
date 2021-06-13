@@ -45,7 +45,7 @@ public class UserController extends GenericController<User,UserDto>{
     }
 
     @Override
-    @PostMapping("/data")
+    @PostMapping("")
     public ResponseEntity<UserDto> create(@RequestBody UserDto created){
         UserDto newObject = userService.create(created);
         return ResponseEntity.ok(newObject);

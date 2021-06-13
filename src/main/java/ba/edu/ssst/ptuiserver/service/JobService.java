@@ -5,16 +5,17 @@ import ba.edu.ssst.ptuiserver.model.dtos.JobDto;
 import ba.edu.ssst.ptuiserver.model.dtos.LocationDto;
 import ba.edu.ssst.ptuiserver.model.dtos.UserDto;
 import ba.edu.ssst.ptuiserver.model.entities.Job;
-import ba.edu.ssst.ptuiserver.repositories.CategoryRepository;
-import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
-import ba.edu.ssst.ptuiserver.repositories.LocationRepository;
-import ba.edu.ssst.ptuiserver.repositories.UserRepository;
+import ba.edu.ssst.ptuiserver.repositories.*;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class JobService extends GenericService<Job>{
@@ -22,24 +23,34 @@ public class JobService extends GenericService<Job>{
     private final LocationRepository locationRepository;
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
+    private final JobRepository jobRepository;
     private final ModelMapper mapper;
 
     @Autowired
     public JobService(GenericRepository<Job> repository,
                       LocationRepository locationRepository,
                       CategoryRepository categoryRepository,
-                      UserRepository userRepository) {
+                      UserRepository userRepository,
+                      JobRepository jobRepository) {
         super(repository);
         this.mapper = new ModelMapper();
         this.locationRepository=locationRepository;
         this.categoryRepository=categoryRepository;
         this.userRepository=userRepository;
+        this.jobRepository=jobRepository;
     }
 
     public List<JobDto> get(){
         List<JobDto> entities = super.get(JobDto.class);
         entities = entities.stream().peek(this::fillForeignObjects).collect(Collectors.toList());
         return entities;
+    }
+
+    public List<JobDto> getUsersJob(String userId){
+        Collection<Job> entities=jobRepository.findAllByOwnerId(Long.parseLong(userId));
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<JobDto> dtos = entities.stream().map(job -> mapper.map(job, JobDto.class)).collect(Collectors.toList());
+        return dtos.stream().peek(this::fillForeignObjects).collect(Collectors.toList());
     }
 
     public JobDto get(Long id){

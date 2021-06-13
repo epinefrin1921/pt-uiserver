@@ -1,6 +1,7 @@
 package ba.edu.ssst.ptuiserver.controller;
 
 import ba.edu.ssst.ptuiserver.model.dtos.JobApplicationDto;
+import ba.edu.ssst.ptuiserver.model.dtos.JobDto;
 import ba.edu.ssst.ptuiserver.model.entities.JobApplication;
 import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import ba.edu.ssst.ptuiserver.service.JobApplicationService;
@@ -23,6 +24,22 @@ public class JobApplicationController extends GenericController<JobApplication, 
     @Override
     @GetMapping
     public ResponseEntity<Collection<JobApplicationDto>> getAll(){
+        return ResponseEntity.ok(jobApplicationService.get());
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Collection<JobApplicationDto>> getAllByUser(@PathVariable String id){
+        if(id != null){
+            return ResponseEntity.ok(jobApplicationService.getUsersApplications(id));
+        }
+        return ResponseEntity.ok(jobApplicationService.get());
+    }
+
+    @GetMapping("/job/{id}")
+    public ResponseEntity<Collection<JobApplicationDto>> getAllByJob(@PathVariable String id){
+        if(id != null){
+            return ResponseEntity.ok(jobApplicationService.getJobApplications(id));
+        }
         return ResponseEntity.ok(jobApplicationService.get());
     }
 

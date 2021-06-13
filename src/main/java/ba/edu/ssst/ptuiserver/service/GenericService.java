@@ -1,6 +1,8 @@
 package ba.edu.ssst.ptuiserver.service;
 
+import ba.edu.ssst.ptuiserver.model.dtos.JobDto;
 import ba.edu.ssst.ptuiserver.model.entities.GenericEntity;
+import ba.edu.ssst.ptuiserver.model.entities.Job;
 import ba.edu.ssst.ptuiserver.repositories.GenericRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

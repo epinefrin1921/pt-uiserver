@@ -19,9 +19,18 @@ public class JobController extends GenericController<Job, JobDto>{
     public JobController(JobRepository repository) {
         super(repository,JobDto.class, Job.class);
     }
+
     @Override
     @GetMapping
     public ResponseEntity<Collection<JobDto>> getAll(){
+        return ResponseEntity.ok(jobService.get());
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Collection<JobDto>> getAllByUser(@PathVariable String id){
+        if(id != null){
+            return ResponseEntity.ok(jobService.getUsersJob(id));
+        }
         return ResponseEntity.ok(jobService.get());
     }
 

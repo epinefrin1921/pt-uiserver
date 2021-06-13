@@ -17,7 +17,7 @@ public class PtUiserverApplication {
 		FilterRegistrationBean<AuthFilter> registrationBean = new FilterRegistrationBean<>();
 		AuthFilter authFilter = new AuthFilter();
 		registrationBean.setFilter(authFilter);
-		registrationBean.addUrlPatterns("/location/*", "/application/*", "/category/*", "/job/*", "/message/*",
+		registrationBean.addUrlPatterns( "/application/*", "/category/*", "/job/*", "/message/*",
 				"/review/*", "/user/data/*");
 		return registrationBean;
 	}
